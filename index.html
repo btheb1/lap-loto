@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Lap.Loto | Говорящее лото</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lap.<span>Loto</span></h1>
+            <p class="subtitle">Говорящее лото от Lap.comp</p>
+        </header>
+
+        <!-- Основной экран -->
+        <div class="game-screen">
+            <div class="current-number" id="currentNumber">—</div>
+            <div class="history-label">Последние числа:</div>
+            <div class="history" id="history"></div>
+        </div>
+
+        <!-- Панель настроек -->
+        <div class="settings-panel" id="settingsPanel">
+            <div class="setting">
+                <label>⚡ Скорость чисел</label>
+                <div class="speed-control">
+                    <input type="range" id="speed" min="0.8" max="5" step="0.1" value="2">
+                    <span id="speedValue">2.0 сек</span>
+                </div>
+            </div>
+            <div class="setting">
+                <label>🎤 Тип голоса</label>
+                <div class="voice-toggle">
+                    <button class="voice-btn" data-voice="robot">🤖 Робот</button>
+                    <button class="voice-btn" data-voice="human">👤 Анна</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопки управления -->
+        <div class="controls">
+            <button class="btn btn-primary" id="startBtn">▶ Начать игру</button>
+            <button class="btn btn-secondary" id="stopBtn" disabled>⏹ Закончить</button>
+            <button class="btn btn-settings" id="settingsBtn">⚙ Настройки</button>
+        </div>
+
+        <!-- Модальное окно продолжения игры -->
+        <div class="modal" id="resumeModal">
+            <div class="modal-content">
+                <h3>🃏 Продолжить игру?</h3>
+                <p>У вас есть незаконченная игра</p>
+                <div class="modal-buttons">
+                    <button class="btn btn-primary" id="resumeYes">✅ Да, продолжить</button>
+                    <button class="btn btn-secondary" id="resumeNo">❌ Нет, начать новую</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="voice.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

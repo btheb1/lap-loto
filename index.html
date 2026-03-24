@@ -9,55 +9,83 @@
 <body>
     <div class="container">
         <header>
-            <h1>Lap.<span>Loto</span></h1>
+            <h1>🎰 Lap.<span>Loto</span></h1>
             <p class="subtitle">Говорящее лото от Lap.comp</p>
         </header>
 
-        <!-- Основной экран -->
+        <!-- Игровое поле -->
         <div class="game-screen">
-            <div class="current-number" id="currentNumber">—</div>
-            <div class="history-label">Последние числа:</div>
+            <div class="current-number" id="currentNumber">🎲</div>
+            <div class="history-label">📋 Последние числа</div>
             <div class="history" id="history"></div>
         </div>
 
         <!-- Панель настроек -->
         <div class="settings-panel" id="settingsPanel">
             <div class="setting">
-                <label>⚡ Скорость чисел</label>
-                <div class="speed-control">
-                    <input type="range" id="speed" min="0.8" max="5" step="0.1" value="2">
-                    <span id="speedValue">2.0 сек</span>
+                <div class="setting-label">
+                    <span>⏱️ Скорость чисел</span>
+                    <span class="setting-value" id="speedValue">2.5 сек</span>
                 </div>
+                <input type="range" id="speed" min="1" max="5" step="0.1" value="2.5">
             </div>
+            
             <div class="setting">
-                <label>🎤 Тип голоса</label>
-                <div class="voice-toggle">
-                    <button class="voice-btn" data-voice="robot">🤖 Робот</button>
-                    <button class="voice-btn" data-voice="human">👤 Анна</button>
+                <div class="setting-label">🎙️ Выберите голос</div>
+                <div class="voice-selector">
+                    <button class="voice-option" data-voice="robot">
+                        <span class="voice-icon">🤖</span>
+                        <span>Робот</span>
+                        <span class="voice-badge">синтезатор</span>
+                    </button>
+                    <button class="voice-option" data-voice="anna">
+                        <span class="voice-icon">👩</span>
+                        <span>Анна</span>
+                        <span class="voice-badge">человек</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Кнопки управления -->
         <div class="controls">
-            <button class="btn btn-primary" id="startBtn">▶ Начать игру</button>
-            <button class="btn btn-secondary" id="stopBtn" disabled>⏹ Закончить</button>
-            <button class="btn btn-settings" id="settingsBtn">⚙ Настройки</button>
+            <button class="btn btn-start" id="startBtn">
+                <span class="btn-icon">▶</span>
+                <span>Начать игру</span>
+            </button>
+            <button class="btn btn-stop" id="stopBtn" disabled>
+                <span class="btn-icon">⏹️</span>
+                <span>Закончить</span>
+            </button>
+            <button class="btn btn-settings" id="settingsBtn">
+                <span class="btn-icon">⚙️</span>
+                <span>Настройки</span>
+            </button>
         </div>
+        
+        <div class="info-text">
+            🎯 Бочонки от 1 до 90
+        </div>
+    </div>
 
-        <!-- Модальное окно продолжения игры -->
-        <div class="modal" id="resumeModal">
-            <div class="modal-content">
-                <h3>🃏 Продолжить игру?</h3>
-                <p>У вас есть незаконченная игра</p>
-                <div class="modal-buttons">
-                    <button class="btn btn-primary" id="resumeYes">✅ Да, продолжить</button>
-                    <button class="btn btn-secondary" id="resumeNo">❌ Нет, начать новую</button>
-                </div>
+    <!-- Модальное окно -->
+    <div class="modal" id="resumeModal">
+        <div class="modal-content">
+            <div class="modal-icon">🃏</div>
+            <h3>Продолжить игру?</h3>
+            <p>У вас есть незаконченная партия</p>
+            <div class="modal-buttons">
+                <button class="btn-modal btn-modal-yes" id="resumeYes">
+                    ✅ Да, продолжить
+                </button>
+                <button class="btn-modal btn-modal-no" id="resumeNo">
+                    ❌ Нет, начать новую
+                </button>
             </div>
         </div>
     </div>
 
+    <script src="config.js"></script>
     <script src="voice.js"></script>
     <script src="script.js"></script>
 </body>

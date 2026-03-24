@@ -5,35 +5,37 @@
 }
 
 body {
-    font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    font-family: -apple-system, 'Segoe UI', 'Roboto', system-ui, sans-serif;
+    background: radial-gradient(circle at 20% 30%, #0a0f1a, #03060c);
     min-height: 100vh;
-    color: #fff;
-    padding: 20px;
+    padding: 16px;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 550px;
     margin: 0 auto;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 40px;
+    background: rgba(10, 20, 30, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 48px;
     padding: 24px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 215, 150, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* Header */
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, #ffd89b, #c7e9fb);
+    font-size: 2.2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ffd966, #ffaa44);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    letter-spacing: -0.5px;
 }
 
 h1 span {
@@ -41,66 +43,72 @@ h1 span {
 }
 
 .subtitle {
-    color: #888;
-    font-size: 0.85rem;
-    margin-top: 5px;
+    color: #8a9bb5;
+    font-size: 0.8rem;
+    margin-top: 4px;
 }
 
 /* Игровой экран */
 .game-screen {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 32px;
+    padding: 24px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 200, 100, 0.2);
 }
 
 .current-number {
-    font-size: 8rem;
-    font-weight: bold;
-    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    font-size: 7rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffaa44, #ff6644);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 30px rgba(78, 205, 196, 0.3);
-    margin: 20px 0;
-    transition: all 0.3s ease;
+    text-shadow: 0 0 40px rgba(255, 100, 50, 0.3);
+    transition: all 0.2s ease;
+    line-height: 1;
 }
 
 .current-number.animate {
     transform: scale(1.1);
-    text-shadow: 0 0 40px rgba(78, 205, 196, 0.6);
+    text-shadow: 0 0 60px rgba(255, 100, 50, 0.6);
 }
 
 .history-label {
-    color: #888;
-    font-size: 0.9rem;
-    margin-top: 20px;
+    color: #6a7c9f;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 16px;
+    margin-bottom: 12px;
 }
 
 .history {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-    min-height: 50px;
+    gap: 8px;
 }
 
 .history span {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 8px 14px;
+    background: rgba(255, 200, 100, 0.15);
+    padding: 6px 12px;
     border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffcc77;
+    border: 1px solid rgba(255, 200, 100, 0.3);
     transition: all 0.2s;
-    animation: fadeIn 0.3s ease;
 }
 
-/* Панель настроек */
+/* Настройки */
 .settings-panel {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 28px;
     padding: 20px;
     margin-bottom: 20px;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 
 .settings-panel.hidden {
@@ -111,24 +119,24 @@ h1 span {
     margin-bottom: 20px;
 }
 
-.setting label {
-    display: block;
+.setting-label {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
-    color: #ffd89b;
+    color: #ffdd99;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
-.speed-control {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.setting-value {
+    color: #ffaa66;
 }
 
 input[type="range"] {
-    flex: 1;
-    height: 5px;
-    border-radius: 5px;
-    background: #333;
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    background: #2a3a4a;
     -webkit-appearance: none;
 }
 
@@ -141,80 +149,115 @@ input[type="range"]::-webkit-slider-thumb {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #ffd89b;
+    background: #ffaa44;
     cursor: pointer;
+    box-shadow: 0 0 8px #ffaa44;
 }
 
-.voice-toggle {
+/* Выбор голоса */
+.voice-selector {
     display: flex;
-    gap: 15px;
+    gap: 12px;
 }
 
-.voice-btn {
+.voice-option {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid transparent;
-    border-radius: 50px;
-    color: white;
+    background: rgba(30, 40, 55, 0.8);
+    border: 2px solid rgba(255, 200, 100, 0.3);
+    border-radius: 60px;
+    color: #ccddff;
     font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
 }
 
-.voice-btn.active {
-    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+.voice-option.active {
+    background: linear-gradient(135deg, #ffaa44, #ff8844);
     border-color: #fff;
-    box-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+    color: #1a1a2e;
+    box-shadow: 0 0 20px rgba(255, 136, 68, 0.4);
 }
 
-/* Кнопки управления */
+.voice-icon {
+    font-size: 1.3rem;
+}
+
+.voice-badge {
+    font-size: 0.7rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+/* Кнопки */
 .controls {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .btn {
     flex: 1;
-    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 16px;
     border: none;
-    border-radius: 50px;
+    border-radius: 60px;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
-    min-width: 120px;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+.btn-start {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn-start:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+.btn-stop {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
 }
 
-.btn-primary:hover {
+.btn-stop:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(78, 205, 196, 0.4);
-}
-
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-}
-
-.btn-secondary:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-}
-
-.btn-secondary:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
 }
 
 .btn-settings {
     background: rgba(255, 255, 255, 0.1);
-    color: white;
+    color: #ffdd99;
+    border: 1px solid rgba(255, 200, 100, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+.info-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: #5a6e8a;
 }
 
 /* Модальное окно */
@@ -225,8 +268,8 @@ input[type="range"]::-webkit-slider-thumb {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -237,50 +280,58 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    padding: 30px;
-    border-radius: 30px;
+    background: linear-gradient(135deg, #1a2a3a, #0f1a24);
+    padding: 32px;
+    border-radius: 48px;
     text-align: center;
-    max-width: 300px;
+    max-width: 320px;
     margin: 20px;
-    animation: slideUp 0.3s ease;
+    border: 1px solid rgba(255, 200, 100, 0.3);
+}
+
+.modal-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
 }
 
 .modal-content h3 {
-    margin-bottom: 15px;
-    color: #ffd89b;
+    color: #ffdd99;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+}
+
+.modal-content p {
+    color: #8a9bb5;
+    margin-bottom: 24px;
 }
 
 .modal-buttons {
     display: flex;
-    gap: 15px;
-    margin-top: 25px;
+    gap: 12px;
 }
 
-/* Анимации */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.btn-modal {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.btn-modal-yes {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
 }
 
-/* Адаптация для телефона */
+.btn-modal-no {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffaa66;
+}
+
+/* Адаптация */
 @media (max-width: 480px) {
     .container {
         padding: 16px;
@@ -291,16 +342,23 @@ input[type="range"]::-webkit-slider-thumb {
     }
     
     .btn {
-        padding: 12px 16px;
-        font-size: 0.9rem;
+        padding: 12px;
+        font-size: 0.85rem;
     }
     
-    .controls {
-        gap: 10px;
+    .voice-option {
+        padding: 10px;
+        font-size: 0.85rem;
     }
     
     .history span {
-        padding: 6px 12px;
-        font-size: 0.9rem;
+        padding: 4px 10px;
+        font-size: 0.85rem;
     }
+}
+
+/* Анимации */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
 }
